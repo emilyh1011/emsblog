@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Routes, Route, useLocation} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation} from 'react-router-dom'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 
@@ -22,7 +22,7 @@ function App() {
   const currentPage = useLocation();
 
   //Check if current route is welcome
-  const isWelcomePage = (currentPage.pathname == "/" || currentPage.pathname == "/Welcome");
+  const isWelcomePage = (currentPage.pathname == "/");
   
   console.log(isWelcomePage);
   console.log("hi");
@@ -39,19 +39,19 @@ function App() {
         <Header className={isWelcomePage ? 'absolute inset-x-0 top-10 h-16 mb-0 z-50 bg-transparent text-white': 'mb-[15px]'}/>
 
         {/**Add routes */}
-        <Routes>
-
-          {/**Define our routes to our different pages, our routes are matched with a URL*/}
-          {/** When we navigate to a URL path,the corresponding component/page is displayed */}
-          {/**When we navigate to a blog-detail page, we want to go to specific blog page, so attach id to identify each post page */}
-          {/*Remember root path means localhost:portNumber, so no slash needed to go to Welcome page, only need base URL */}
-          <Route path = "/" element = {<Welcome />}></Route>
-          <Route path="/Blog" element={<Home />}></Route>
-          <Route path="/blog-detail/:id" element={<Blogdetail />}></Route>
-          <Route path="/AboutMe" element={<AboutMe />}></Route>
-          
-
-        </Routes>
+       
+          <Routes>
+            {/**Define our routes to our different pages, our routes are matched with a URL*/}
+            {/** When we navigate to a URL path,the corresponding component/page is displayed */}
+            {/**When we navigate to a blog-detail page, we want to go to specific blog page, so attach id to identify each post page */}
+            {/*Remember root path means localhost:portNumber, so no slash needed to go to Welcome page, only need base URL */}
+            <Route path="/" element={<Welcome />}></Route>
+            <Route path="/Blog" element={<Home />}></Route>
+            <Route path="/blog-detail/:id" element={<Blogdetail />}></Route>
+            <Route path="/AboutMe" element={<AboutMe />}></Route>
+          </Routes>
+        
+        
 
 
         {/*Footer*/}
