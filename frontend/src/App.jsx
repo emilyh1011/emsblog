@@ -44,12 +44,12 @@ function App() {
           {/**Define our routes to our different pages, our routes are matched with a URL*/}
           {/** When we navigate to a URL path,the corresponding component/page is displayed */}
           {/**When we navigate to a blog-detail page, we want to go to specific blog page, so attach id to identify each post page */}
-
+          {/*Remember root path means localhost:portNumber, so no slash needed to go to Welcome page, only need base URL */}
           <Route path = "/" element = {<Welcome />}></Route>
           <Route path="/Blog" element={<Home />}></Route>
           <Route path="/blog-detail/:id" element={<Blogdetail />}></Route>
           <Route path="/AboutMe" element={<AboutMe />}></Route>
-          <Route path="/Welcome" element={<Welcome />}></Route>
+          
 
         </Routes>
 

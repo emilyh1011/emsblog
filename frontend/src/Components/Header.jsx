@@ -32,7 +32,7 @@ function Header({className}) {
         <ul className = 'flex gap-4 md: gap-8'>
 
             {/*Syntax maters. Space between : and word caused text to always be bolded rather than just hover to bold*/}
-            <li className = 'hover:font-bold cursor-pointer text-[18px] md:text-[25px]' onClick={()=>navigate('/Welcome')}>Welcome</li>
+            <li className = 'hover:font-bold cursor-pointer text-[18px] md:text-[25px]' onClick={()=>navigate('/')}>Welcome</li>
             <li className = 'hover:font-bold cursor-pointer text-[18px] md:text-[25px]' onClick={()=>navigate('/Blog')}>Blog </li>
             <li className = 'hover:font-bold cursor-pointer text-[18px] md:text-[25px]' onClick={()=>navigate('/AboutMe')}>About Me</li>
             
