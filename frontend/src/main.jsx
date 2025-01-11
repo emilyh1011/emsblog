@@ -11,8 +11,8 @@ import { BrowserRouter } from 'react-router-dom'
   * Ex: we said "/" goes to Welcome.jsx component => /blog/ 
   */
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename = "/blog">
-    <App />
+  <BrowserRouter basename = "/blog/"> {/*after deploying to github, our react router now loading blank pages bc we have this added repo to our URL */}
+    <App />                           {/*make our vite.config.js base be the same as basename in BrowserRouter */}
   </BrowserRouter>,
 )
 
