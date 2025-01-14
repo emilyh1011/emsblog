@@ -10,6 +10,10 @@ import Axios from "axios";
 import{useState, useEffect} from 'react'
 
 function Home() { 
+  //Decide our backend link, are we running on our local machine or are we on Render(deployed version)
+  const backendLink = import.meta.env.NODE_ENV === "production" 
+  ? import.meta.env.VITE_BACKEND_PROD_URL : import.meta.env.VITE_BACKEND_URL;
+  
   //Create a state, declare a list state variable.
   //Start with an empty posts(array) because we will fetch our data from backend to fill our posts array
   //We will use our second function to alter our state variable
@@ -36,7 +40,7 @@ function Home() {
       //We will save our get request into a variable(result), so we can catch an error if get request fails
       try{
 
-        const result = await Axios.get("http://localhost:5002/getPosts").then((response)=>{
+        const result = await Axios.get(`${backendLink}/getPosts`).then((response)=>{
           //Map each post in our posts array into a more enhanced post object
           //The map function returns a new array of our enhanced post objects
           const enhancedPosts = response.data.map((post)=>({
@@ -153,7 +157,7 @@ function Home() {
     //1. Get posts that match searchQuery or empty array if no matching posts found
     try{
       //Call get API, use backticks to add variable in string
-      const result = await Axios.get(`http://localhost:5002/getAllPosts/${searchQuery}`).then((response)=>{
+      const result = await Axios.get(`${backendLink}/getAllPosts/${searchQuery}`).then((response)=>{
         
         const enhancedResultPosts = response.data.map((post)=>({
           id: post._id,

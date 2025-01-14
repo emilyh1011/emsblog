@@ -32,6 +32,10 @@ const preloadPhotos = (photosArray)=>{
 
 
 function Welcome() {
+  //Decide our backend link, are we running on our local machine or are we on Render(deployed version)
+  const backendLink = import.meta.env.NODE_ENV === "production"
+    ? import.meta.env.VITE_BACKEND_PROD_URL : import.meta.env.VITE_BACKEND_URL;
+
   //Create a welcomePhotosList state variable. This will store all our welcome carousel photos
   const [welcomePhotosList, setWelcomePhotosList] = useState([]);
 
@@ -45,7 +49,7 @@ function Welcome() {
       //Use axios to make our get API request to fetch all documents in welcome carousel photos collection
       try {
         //Remember API request will either send back an error or the actual list of welcomeCarouselPhotos documents
-        const result = await Axios.get("http://localhost:5002/getAllWelcomeCarouselPhotos").then((response) => {
+        const result = await Axios.get(`${backendLink}/getAllWelcomeCarouselPhotos`).then((response) => {
           setWelcomePhotosList(response.data);
           preloadPhotos(response.data);   //if takes a while to fetch photos, let us also preload
           

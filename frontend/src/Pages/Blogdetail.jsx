@@ -9,6 +9,11 @@ import ReactMarkdown from 'react-markdown';
 //import remarkGfm from 'remark-gfm';
 
 function Blogdetail() {
+    //Decide our backend link, are we running on our local machine or are we on Render(deployed version)
+    const backendLink = import.meta.env.NODE_ENV === "production" 
+        ? import.meta.env.VITE_BACKEND_PROD_URL : import.meta.env.VITE_BACKEND_URL;
+
+    console.log(backendLink);
 
     //Make API call to fetch our post data that matches with id from URL
     //useParams allows us to extract an object version of the id from URL.
@@ -34,7 +39,7 @@ function Blogdetail() {
 
             //Insert id to our getPostById get request to make sure our API call can find correct post document with this id    
             //Remember we need a template string for this
-            const result = await Axios.get(`http://localhost:5002/getPostById/${id}`).then((response) => {
+            const result = await Axios.get(`${backendLink}/getPostById/${id}`).then((response) => {
                 //Map the post that our getPostByID api request gets from database to an enhancedPost object
                 //Save each attribute of the post we got from our backend where Id matches to a corresponding field 
                 //for enhancedPost
