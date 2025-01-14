@@ -178,8 +178,10 @@ app.get("/getAllWelcomeCarouselPhotos", async(req, res)=>{
     
 })
 
-
+//When we run on our local machine, use our hardcoded port 5002, 
+//but on our deployed site on Render, we want to use port they give us
+const port = process.env.PORT || 5002;
 //Our frontend runs on port 5173, our backend shouldn't run same port, so give it a diff port
-app.listen(5002, ()=>{
+app.listen(port, ()=>{
     console.log("server runs");
 });
