@@ -11,8 +11,9 @@ import{useState, useEffect} from 'react'
 
 function Home() { 
   //Decide our backend link, are we running on our local machine or are we on Render(deployed version)
-  const backendLink = import.meta.env.NODE_ENV === "production" 
-  ? import.meta.env.VITE_BACKEND_PROD_URL : import.meta.env.VITE_BACKEND_URL;
+  const backendLink = import.meta.env.MODE === "production"
+    ? import.meta.env.VITE_BACKEND_PROD_URL : import.meta.env.VITE_BACKEND_URL;
+    console.log(backendLink);
   
   //Create a state, declare a list state variable.
   //Start with an empty posts(array) because we will fetch our data from backend to fill our posts array

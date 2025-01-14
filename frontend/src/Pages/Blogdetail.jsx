@@ -10,8 +10,9 @@ import ReactMarkdown from 'react-markdown';
 
 function Blogdetail() {
     //Decide our backend link, are we running on our local machine or are we on Render(deployed version)
-    const backendLink = import.meta.env.NODE_ENV === "production" 
-        ? import.meta.env.VITE_BACKEND_PROD_URL : import.meta.env.VITE_BACKEND_URL;
+    const backendLink = import.meta.env.MODE === "production"
+    ? import.meta.env.VITE_BACKEND_PROD_URL : import.meta.env.VITE_BACKEND_URL;
+    console.log(backendLink);
 
     console.log(backendLink);
 
