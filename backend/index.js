@@ -23,7 +23,7 @@ app.use(express.json());
 //app.use(cors());
 
 // Define allowed origins
-const allowedOrigins = ["https://blog-frontend-7sle.onrender.com/"];
+const allowedOrigins = ["https://blog-frontend-7sle.onrender.com"];
 
 app.use(
     cors({
