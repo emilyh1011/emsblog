@@ -19,7 +19,20 @@ const cors = require('cors');
 //in a usable javascript object
 app.use(express.json());
 
-app.use(cors());
+
+//app.use(cors());
+
+// Define allowed origins
+const allowedOrigins = ["https://blog-frontend-7sle.onrender.com/"];
+
+app.use(
+    cors({
+        origin: allowedOrigins,
+        methods: ["GET", "POST", "PUT", "DELETE"], //API requests allowed
+        allowedHeaders: ["Content-Type"], //Headers allowed
+        credentials: true, //allow cookies if necessary
+    })
+);
 
 //Use connection string to connect our cluster that we created with MongoAtlas
 //Specify database we are connecting and replace password with our admin access
