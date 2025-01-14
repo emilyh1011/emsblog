@@ -7,6 +7,10 @@ const app = express();
 //Import mongoose
 const mongoose = require("mongoose");
 
+//Require our dotenv library, so we can use our environmental variables from .env file
+//Use process.env.VariableName to access values in our code
+require("dotenv").config();
+
 //Allows us to connect API with react frontend without any errors
 const cors = require('cors');
 
@@ -21,7 +25,7 @@ app.use(cors());
 //Specify database we are connecting and replace password with our admin access
 //Make sure to also use connection string to connect to compass
 //In our cluster, we will be connecting to blog database 
-mongoose.connect("mongodb+srv://emilyhan1011:adminTest@cluster0.xfgoh.mongodb.net/blog");
+mongoose.connect(process.env.MONGO_URI);
 
 
 //Allow our index.js file to have access to our PostModel
@@ -183,5 +187,5 @@ app.get("/getAllWelcomeCarouselPhotos", async(req, res)=>{
 const port = process.env.PORT || 5002;
 //Our frontend runs on port 5173, our backend shouldn't run same port, so give it a diff port
 app.listen(port, ()=>{
-    console.log("server runs");
+    console.log("server runs here");
 });
