@@ -36,6 +36,8 @@ function Welcome() {
   
   console.log(import.meta.env.VITE_BACKEND_PROD_URL);
   console.log(import.meta.env.VITE_BACKEND_URL);
+  console.log("NODE_ENV:", import.meta.env.NODE_ENV);
+
   const backendLink = import.meta.env.NODE_ENV === "production"
     ? import.meta.env.VITE_BACKEND_PROD_URL : import.meta.env.VITE_BACKEND_URL;
     console.log(backendLink);
