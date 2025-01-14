@@ -1,5 +1,4 @@
 import React from 'react';
-import banner1 from './../assets/images/BannerPhotoILY.jpg';
 import { IoIosSearch } from "react-icons/io";
 import {useState} from 'react';
 //Left off 37.18 at axios
@@ -55,7 +54,7 @@ function Search({selectedTag, onSearch}) {
   return (
     <div className = 'flex items-center mt-8 flex-col px-[5%]'>
         {/*Center banner, add margin to top of banner*/}
-        <img src= {banner1} className = 'max-w-[900px] h-auto rounded-2xl w-full'/>
+        <img src= "https://blog2photos.s3.us-east-2.amazonaws.com/welcomeCarouselPhotos/emilyAlexBungee.jpg" className = 'max-w-[900px] h-auto rounded-2xl w-full'/>
 
         {/*Actual search bar, wrap it in a div*/}
         {/*Remember, width full to extend search bar to fill whole container, but 5% padding of container
