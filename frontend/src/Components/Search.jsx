@@ -24,12 +24,8 @@ function Search({selectedTag, onSearch}) {
         },
         {
             id:4,
-            name: 'Overthinking'
-        },
-        {
-            id: 5,
             name: 'Posts'
-        }
+        },
     ]
 
     //The blog posts displayed depends on the tag our user clicks on to filter the blog posts.

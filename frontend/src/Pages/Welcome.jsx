@@ -58,6 +58,7 @@ function Welcome() {
         const result = await Axios.get(`${backendLink}/getAllWelcomeCarouselPhotos`).then((response) => {
           setWelcomePhotosList(response.data);
           preloadPhotos(response.data);   //if takes a while to fetch photos, let us also preload
+          console.log("Fetched Welcome Photos:", welcomePhotosList);
           
         });
 

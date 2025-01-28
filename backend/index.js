@@ -19,10 +19,10 @@ const cors = require('cors');
 //in a usable javascript object
 app.use(express.json());
 
+//Local Development
+app.use(cors());
 
-//app.use(cors());
-
-// Define allowed origins
+// Define allowed origins for production/deployed version
 const allowedOrigins = ["https://blog-frontend-7sle.onrender.com"];
 
 app.use(
